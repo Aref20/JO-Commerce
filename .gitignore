@@ -398,3 +398,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/src/DockerDesktopWSL/disk/docker_data.vhdx
+/src/DockerDesktopWSL/main/ext4.vhdx
