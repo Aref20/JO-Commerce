@@ -15,36 +15,24 @@ namespace Catalog.API.Controllers
         [HttpGet]
         public async Task<Result<List<ProductDto>>> GetAll()
         {
-            var tenantId = GetTenantId();
-            if (tenantId == Guid.Empty)
-                return Result.Failure<List<ProductDto>>("Invalid tenant");
-
-            var query = new GetProductsQuery { TenantId = tenantId };
+            var query = new GetProductsQuery {  };
             return await _mediator.Send(query);
         }
 
         [HttpGet("{id:guid}")]
         public async Task<Result<ProductDto>> GetById(Guid id)
         {
-            var tenantId = GetTenantId();
-            if (tenantId == Guid.Empty)
-                return Result.Failure<ProductDto>("Invalid tenant");
-
-            var query = new GetProductQuery { Id = id, TenantId = tenantId };
+            var query = new GetProductQuery { Id = id };
             return await _mediator.Send(query);
         }
 
         [HttpPost]
         public async Task<Result<ProductDto>> Create([FromBody] CreateProductDto productDto)
         {
-            var tenantId = GetTenantId();
-            if (tenantId == Guid.Empty)
-                return Result.Failure<ProductDto>("Invalid tenant");
 
             var command = new CreateProductCommand
             {
                 ProductDto = productDto,
-                TenantId = tenantId
             };
 
             return await _mediator.Send(command);
@@ -53,15 +41,12 @@ namespace Catalog.API.Controllers
         [HttpPut("{id:guid}")]
         public async Task<Result<ProductDto>> Update(Guid id, [FromBody] UpdateProductDto productDto)
         {
-            var tenantId = GetTenantId();
-            if (tenantId == Guid.Empty)
-                return Result.Failure<ProductDto>("Invalid tenant");
+
 
             var command = new UpdateProductCommand
             {
                 Id = id,
-                ProductDto = productDto,
-                TenantId = tenantId
+                ProductDto = productDto
             };
 
             return await _mediator.Send(command);
@@ -70,11 +55,7 @@ namespace Catalog.API.Controllers
         [HttpDelete("{id:guid}")]
         public async Task<Result> Delete(Guid id)
         {
-            var tenantId = GetTenantId();
-            if (tenantId == Guid.Empty)
-                return Result.Failure("Invalid tenant");
-
-            var command = new DeleteProductCommand { Id = id, TenantId = tenantId };
+            var command = new DeleteProductCommand { Id = id };
             return await _mediator.Send(command);
         }
 

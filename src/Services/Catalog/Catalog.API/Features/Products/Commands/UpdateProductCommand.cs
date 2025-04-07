@@ -8,6 +8,5 @@ namespace Catalog.API.Features.Products.Commands
     {
         public Guid Id { get; set; }
         public UpdateProductDto ProductDto { get; set; } = default!;
-        public Guid TenantId { get; set; }
     }
 }

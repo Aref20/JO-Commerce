@@ -16,7 +16,6 @@ namespace Catalog.API.Features.Products.Commands
             try
             {
                 var product = request.ProductDto.Adapt<Product>();
-                product.TenantId = request.TenantId;
                 product.CreatedAt = DateTime.UtcNow;
                 product.CreatedBy = "System"; // Ideally from current user context
 

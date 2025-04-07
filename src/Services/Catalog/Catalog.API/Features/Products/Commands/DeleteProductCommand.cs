@@ -6,6 +6,5 @@ namespace Catalog.API.Features.Products.Commands;
    public class DeleteProductCommand : IRequest<Result>
     {
         public Guid Id { get; set; }
-        public Guid TenantId { get; set; }
     }
 
