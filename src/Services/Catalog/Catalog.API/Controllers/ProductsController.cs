@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using BuildingBlocks.BaseEntity;
 using Catalog.API.Features.Products.Commands;
-using Catalog.API.Features.Products.DTOs;
 using Catalog.API.Features.Products.Queries;
+using Catalog.API.Features.Products.Create;
+using Catalog.API.Features.Products.Update;
+using Catalog.API.Domian.DTOs;
 
 namespace Catalog.API.Controllers
 {
@@ -12,52 +14,10 @@ namespace Catalog.API.Controllers
     public class ProductsController(IMediator _mediator) : ControllerBase
     {
 
-        [HttpGet]
-        public async Task<Result<List<ProductDto>>> GetAll()
-        {
-            var query = new GetProductsQuery {  };
-            return await _mediator.Send(query);
-        }
-
-        [HttpGet("{id:guid}")]
-        public async Task<Result<ProductDto>> GetById(Guid id)
-        {
-            var query = new GetProductQuery { Id = id };
-            return await _mediator.Send(query);
-        }
-
-        [HttpPost]
-        public async Task<Result<ProductDto>> Create([FromBody] CreateProductDto productDto)
-        {
-
-            var command = new CreateProductCommand
-            {
-                ProductDto = productDto,
-            };
-
-            return await _mediator.Send(command);
-        }
-
-        [HttpPut("{id:guid}")]
-        public async Task<Result<ProductDto>> Update(Guid id, [FromBody] UpdateProductDto productDto)
-        {
 
 
-            var command = new UpdateProductCommand
-            {
-                Id = id,
-                ProductDto = productDto
-            };
 
-            return await _mediator.Send(command);
-        }
 
-        [HttpDelete("{id:guid}")]
-        public async Task<Result> Delete(Guid id)
-        {
-            var command = new DeleteProductCommand { Id = id };
-            return await _mediator.Send(command);
-        }
 
         #region Helper Methods
 

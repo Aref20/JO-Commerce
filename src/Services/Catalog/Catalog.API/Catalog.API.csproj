@@ -11,17 +11,23 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="Domian\Events\**" />
+      <Compile Remove="Features\Products\EventHandlers\**" />
+      <Content Remove="Domian\Events\**" />
+      <Content Remove="Features\Products\EventHandlers\**" />
+      <EmbeddedResource Remove="Domian\Events\**" />
+      <EmbeddedResource Remove="Features\Products\EventHandlers\**" />
+      <None Remove="Domian\Events\**" />
+      <None Remove="Features\Products\EventHandlers\**" />
+    </ItemGroup>
+
+    <ItemGroup>
       <PackageReference Include="Marten" Version="7.39.5" />
       <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks\Common.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Domian\Events\" />
-      <Folder Include="Features\Products\EventHandlers\" />
     </ItemGroup>
 
 </Project>

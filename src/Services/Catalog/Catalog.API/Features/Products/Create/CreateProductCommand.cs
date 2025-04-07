@@ -1,8 +1,9 @@
 ﻿using BuildingBlocks.BaseEntity;
-using Catalog.API.Features.Products.DTOs;
+using Catalog.API.Domian.DTOs;
+using Catalog.API.Features.Products.Create;
 using MediatR;
 
-namespace Catalog.API.Features.Products.Commands;
+namespace Catalog.API.Features.Products.CreateProduct;
 
 public class CreateProductCommand : IRequest<Result<ProductDto>>
 {

@@ -1,7 +1,8 @@
-﻿namespace Catalog.API.Features.Products.DTOs
+﻿namespace Catalog.API.Domian.DTOs
 {
-    public class UpdateProductDto
+    public class ProductDto
     {
+        public Guid Id { get; set; }
         public string Name { get; set; } = default!;
         public string Description { get; set; } = default!;
         public string SKU { get; set; } = default!;

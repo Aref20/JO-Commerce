@@ -1,13 +1,13 @@
 ﻿using BuildingBlocks.BaseEntity;
+using Catalog.API.Domian.DTOs;
 using Catalog.API.Domian.Entities.Products;
-using Catalog.API.Features.Products.DTOs;
 using Mapster;
 using Marten;
 using MediatR;
 
-namespace Catalog.API.Features.Products.Commands
+namespace Catalog.API.Features.Products.CreateProduct
 {
-    public class CreateProductCommandHandler(IDocumentSession session) :
+    public class CreateProductHandler(IDocumentSession session) :
            IRequestHandler<CreateProductCommand, Result<ProductDto>>
     {
 

@@ -1,13 +1,13 @@
 ﻿using BuildingBlocks.BaseEntity;
+using Catalog.API.Domian.DTOs;
 using Catalog.API.Domian.Entities.Products;
-using Catalog.API.Features.Products.DTOs;
 using MapsterMapper;
 using Marten;
 using MediatR;
 
-namespace Catalog.API.Features.Products.Queries
+namespace Catalog.API.Features.Products.GetAll
 {
-    public class GetProductsQueryHandler(IDocumentSession session,IMapper mapper) :
+    public class GetProductsHandler(IDocumentSession session,IMapper mapper) :
         IRequestHandler<GetProductsQuery, Result<List<ProductDto>>>
     {
 

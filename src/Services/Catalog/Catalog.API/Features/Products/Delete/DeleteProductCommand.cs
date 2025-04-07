@@ -1,7 +1,7 @@
 ﻿using BuildingBlocks.BaseEntity;
 using MediatR;
 
-namespace Catalog.API.Features.Products.Commands;
+namespace Catalog.API.Features.Products.DeleteProduct;
 
    public class DeleteProductCommand : IRequest<Result>
     {

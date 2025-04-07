@@ -5,9 +5,9 @@ using Mapster;
 using Marten;
 using MediatR;
 
-namespace Catalog.API.Features.Products.Commands;
+namespace Catalog.API.Features.Products.DeleteProduct;
 
-    public class DeleteProductCommandHandler(IDocumentSession session) :
+    public class DeleteProductHandler(IDocumentSession session) :
            IRequestHandler<DeleteProductCommand, Result>
     {
         public async Task<Result> Handle(DeleteProductCommand request, CancellationToken cancellationToken)

@@ -1,8 +1,8 @@
 ﻿using BuildingBlocks.BaseEntity;
-using Catalog.API.Features.Products.DTOs;
+using Catalog.API.Domian.DTOs;
 using MediatR;
 
-namespace Catalog.API.Features.Products.Queries
+namespace Catalog.API.Features.Products.GetAll
 {
     public class GetProductsQuery : IRequest<Result<List<ProductDto>>>
     {
