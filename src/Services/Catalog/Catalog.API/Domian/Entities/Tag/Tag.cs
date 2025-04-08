@@ -1,10 +1,19 @@
-﻿namespace Catalog.API.Domian.Entities.Tag
+﻿using BuildingBlocks.BaseEntity;
+using System.ComponentModel.DataAnnotations;
+
+namespace Catalog.API.Domian.Entities
 {
-    public class Tag
+    public class Tag : BaseEntity
     {
-        public Guid Id { get; set; }
-        public Guid TenantId { get; set; }
-        public string Name { get; set; }
-        public string Slug { get; set; }
+        [Required]
+        [MaxLength(100)]
+        public required string Name { get; set; }
+
+        [Required]
+        [MaxLength(100)]
+        [RegularExpression(@"^[a-z0-9\-]+$")]
+        public required string Slug { get; set; }
+
+        public ICollection<ProductTag> ProductTags { get; set; } = new List<ProductTag>();
     }
 }

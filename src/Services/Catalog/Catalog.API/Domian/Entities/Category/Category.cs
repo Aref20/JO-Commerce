@@ -1,21 +1,39 @@
-﻿using System.ComponentModel;
+﻿using System.ComponentModel.DataAnnotations;
+using BuildingBlocks.BaseEntity;
+using Catalog.API.Domian.Entities;
 
-namespace Catalog.API.Domian.Entities.Category
+
+
+namespace Catalog.API.Domain.Entities
 {
-    public class Category
+    public class Category : BaseEntity
     {
-        public Guid Id { get; set; }
-        public Guid TenantId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Slug { get; set; }
-        public Guid? ParentCategoryId { get; set; }
-        public Category ParentCategory { get; set; }
-        public ICollection<Category> SubCategories { get; set; }
-        public string ImageUrl { get; set; }
-        public int DisplayOrder { get; set; }
-        public bool IsActive { get; set; }
-        public SEOMetadata SEO { get; set; }
-        public ICollection<CategoryAttribute> Attributes { get; set; }
+        [Required]
+        [MaxLength(100)]
+        public required string Name { get; set; }
+
+        [MaxLength(500)]
+        public string? Description { get; set; }
+
+        [Required]
+        [MaxLength(100)]
+        public required string Slug { get; set; }  
+
+        public Guid? ParentCategoryId { get; set; }  
+        public Category? ParentCategory { get; set; } 
+
+        public ICollection<Category> SubCategories { get; set; } = new List<Category>(); 
+
+        [MaxLength(2048)] 
+        public string? ImageUrl { get; set; } 
+
+        public int DisplayOrder { get; set; } = 0; 
+
+        public bool IsActive { get; set; } = true;  
+
+        public SEOMetadata? SEO { get; set; } 
+
+        public ICollection<CategoryAttribute> Attributes { get; set; } = new List<CategoryAttribute>();
+        public ICollection<ProductCategory> ProductCategories { get; set; } = new List<ProductCategory>();
     }
 }

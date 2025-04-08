@@ -1,8 +1,9 @@
 ﻿using BuildingBlocks.BaseEntity;
+using Catalog.API.Domain.Entities;
 
-namespace Catalog.API.Domian.Entities.Products
+namespace Catalog.API.Domian.Entities
 {
-    public class ProductCategory : BaseEntity, ITenant
+    public class ProductCategory : BaseEntity
     {
         public Guid ProductId { get; set; }
         public Product Product { get; set; }
@@ -10,6 +11,5 @@ namespace Catalog.API.Domian.Entities.Products
         public Category Category { get; set; }
         public bool IsPrimary { get; set; }
         public int DisplayOrder { get; set; }
-        public Guid TenantId { get; set; }
     }
 }

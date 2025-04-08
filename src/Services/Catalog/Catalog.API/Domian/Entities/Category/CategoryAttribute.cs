@@ -1,12 +1,17 @@
-﻿namespace Catalog.API.Domian.Entities.Category
+﻿using BuildingBlocks.BaseEntity;
+using Catalog.API.Domain.Entities;
+
+namespace Catalog.API.Domian.Entities
 {
-    public class CategoryAttribute
+    public class CategoryAttribute : BaseEntity  // Inherit if needed
     {
         public Guid CategoryId { get; set; }
-        public Category Category { get; set; }
+        public Category Category { get; set; } = default!;  // Required navigation
+
         public Guid AttributeId { get; set; }
-        public Attribute Attribute { get; set; }
-        public bool IsRequired { get; set; }
-        public int DisplayOrder { get; set; }
+        public Attribute Attribute { get; set; } = default!;  // Required navigation
+
+        public bool IsRequired { get; set; } = false;  // Default to false
+        public int DisplayOrder { get; set; } = 0;  // Default to 0
     }
 }

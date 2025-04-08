@@ -1,6 +1,6 @@
 ﻿using BuildingBlocks.BaseEntity;
-using Catalog.API.Domian.DTOs;
-using Catalog.API.Domian.Entities.Products;
+using Catalog.API.Domian.DTOs.Product;
+using Catalog.API.Domian.Entities;
 using Mapster;
 using Marten;
 using MediatR;

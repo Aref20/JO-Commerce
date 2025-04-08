@@ -1,11 +1,18 @@
-﻿namespace Catalog.API.Domian.Entities.Tax
+﻿using BuildingBlocks.BaseEntity;
+using System.ComponentModel.DataAnnotations;
+
+namespace Catalog.API.Domian.Entities
 {
-    public class TaxClass
+    public class TaxClass : BaseEntity
     {
-        public Guid Id { get; set; }
-        public Guid TenantId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public ICollection<TaxRate> TaxRates { get; set; }
+        [Required]
+        [MaxLength(100)]
+        public required string Name { get; set; }
+
+        [MaxLength(500)]
+        public string? Description { get; set; }
+
+        public ICollection<TaxRate> TaxRates { get; set; } = new List<TaxRate>();
+        public ICollection<Product> Products { get; set; } = new List<Product>();
     }
 }

@@ -1,14 +1,26 @@
-﻿namespace Catalog.API.Domian.Entities.Tax
+﻿using BuildingBlocks.BaseEntity;
+using System.ComponentModel.DataAnnotations;
+
+namespace Catalog.API.Domian.Entities
 {
-    public class TaxRate
+    public class TaxRate : BaseEntity
     {
-        public Guid Id { get; set; }
-        public Guid TaxClassId { get; set; }
-        public TaxClass TaxClass { get; set; }
-        public string CountryCode { get; set; }
-        public string StateCode { get; set; }
-        public string PostalCode { get; set; }
+        [Required]
+        [MaxLength(2)]
+        public required string CountryCode { get; set; }
+
+        [MaxLength(3)]
+        public string? StateCode { get; set; }
+
+        [MaxLength(10)]
+        public string? PostalCode { get; set; }
+
+        [Range(0, 100)]
         public decimal Rate { get; set; }
+
         public bool IsDefault { get; set; }
+
+        public Guid TaxClassId { get; set; }
+        public TaxClass TaxClass { get; set; } = default!;
     }
 }

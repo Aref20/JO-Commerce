@@ -1,4 +1,4 @@
-﻿namespace Catalog.API.Domian.DTOs
+﻿namespace Catalog.API.Domian.DTOs.Product
 {
     public class ProductDto
     {

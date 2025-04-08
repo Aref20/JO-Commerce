@@ -1,46 +1,80 @@
 ﻿using BuildingBlocks.BaseEntity;
-using Microsoft.AspNetCore.Mvc;
-using System.Formats.Asn1;
+using Catalog.API.Domain.Entities;
+using Common.Enums;
+using System.ComponentModel.DataAnnotations;
 
-namespace Catalog.API.Domian.Entities.Products
+
+namespace Catalog.API.Domian.Entities
 {
-    public class Product : BaseEntity, ITenant
+    public class Product : BaseEntity
     {
-        public Guid TenantId { get; set; }
-        public string Name { get; set; }
-        public string ShortDescription { get; set; }
-        public string FullDescription { get; set; }
-        public string Sku { get; set; }
-        public string Gtin { get; set; } // Global Trade Item Number
-        public string Mpn { get; set; } // Manufacturer Part Number
+        [MaxLength(250)]
+        public required string Name { get; set; }
+
+        [MaxLength(500)]
+        public string ShortDescription { get; set; } = string.Empty;
+
+        public string FullDescription { get; set; } = string.Empty;
+
+        [MaxLength(100)]
+        public string Sku { get; set; } = string.Empty;
+
+        [MaxLength(50)]
+        public string? Gtin { get; set; }
+
+        [MaxLength(50)]
+        public string? Mpn { get; set; }
+
+        [Range(0, double.MaxValue)]
         public decimal Price { get; set; }
+
+        [Range(0, double.MaxValue)]
         public decimal? CompareAtPrice { get; set; }
-        public decimal Cost { get; set; }
-        public int StockQuantity { get; set; }
+
+        [Range(0, double.MaxValue)]
+        public decimal? Cost { get; set; }
+
+        public required int StockQuantity { get; set; }
         public bool TrackInventory { get; set; }
         public bool AllowBackorder { get; set; }
         public int LowStockThreshold { get; set; }
-        public decimal Weight { get; set; }
-        public decimal Length { get; set; }
-        public decimal Width { get; set; }
-        public decimal Height { get; set; }
-        public string WeightUnit { get; set; }
-        public string DimensionUnit { get; set; }
+
+        [Range(0, double.MaxValue)]
+        public decimal? Weight { get; set; }
+
+        [Range(0, double.MaxValue)]
+        public decimal? Length { get; set; }
+
+        [Range(0, double.MaxValue)]
+        public decimal? Width { get; set; }
+
+        [Range(0, double.MaxValue)]
+        public decimal? Height { get; set; }
+
+        public WeightUnit? WeightUnit { get; set; }
+        public DimensionUnit? DimensionUnit { get; set; }
         public bool HasVariants { get; set; }
         public ProductType ProductType { get; set; }
-        public string Slug { get; set; }
+
+        [MaxLength(300)]
+        public string Slug { get; set; } = string.Empty;
+
         public bool IsActive { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+
         public Guid BrandId { get; set; }
-        public Brand Brand { get; set; }
-        public ICollection<ProductCategory> Categories { get; set; }
-        public ICollection<ProductImage> Images { get; set; }
-        public ICollection<ProductAttribute> Attributes { get; set; }
-        public ICollection<ProductVariant> Variants { get; set; }
-        public ICollection<RelatedProduct> RelatedProducts { get; set; }
-        public ICollection<ProductTag> Tags { get; set; }
-        public SEOMetadata SEO { get; set; }
-        public TaxClass TaxClass { get; set; }
+        public virtual Brand.Brand Brand { get; set; } = default!;
+
+        public virtual ICollection<ProductCategory> Categories { get; set; } = new List<ProductCategory>();
+        public virtual ICollection<ProductImage> Images { get; set; } = new List<ProductImage>();
+        public virtual ICollection<ProductAttribute> Attributes { get; set; } = new List<ProductAttribute>();
+        public virtual ICollection<ProductVariant> Variants { get; set; } = new List<ProductVariant>();
+        public virtual ICollection<RelatedProduct> RelatedProducts { get; set; } = new List<RelatedProduct>();
+        public virtual ICollection<ProductTag> Tags { get; set; } = new List<ProductTag>();
+
+        public SEOMetadata? SEO { get; set; }
+        public virtual TaxClass TaxClass { get; set; } = default!;
     }
+
+
+
 }

@@ -1,5 +1,5 @@
 ﻿using BuildingBlocks.BaseEntity;
-using Catalog.API.Domian.DTOs;
+using Catalog.API.Domian.DTOs.Product;
 using MediatR;
 
 namespace Catalog.API.Features.Products.Get

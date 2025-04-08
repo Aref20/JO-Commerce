@@ -1,14 +1,30 @@
-﻿namespace Catalog.API.Domian.Entities.Brand
+﻿using BuildingBlocks.BaseEntity;
+using Catalog.API.Domain.Entities;
+using System.ComponentModel.DataAnnotations;
+
+namespace Catalog.API.Domian.Entities.Brand
 {
-    public class Brand
+    public class Brand : BaseEntity // Inherits ID, TenantId, audit fields if needed
     {
-        public Guid Id { get; set; }
-        public Guid TenantId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string LogoUrl { get; set; }
-        public string Slug { get; set; }
-        public bool IsActive { get; set; }
-        public SEOMetadata SEO { get; set; }
+        [Required]
+        [MaxLength(100)]
+        public required string Name { get; set; }
+
+        [MaxLength(500)]
+        public string? Description { get; set; } // Nullable if optional
+
+        [MaxLength(2048)] // URL length limit
+        public string? LogoUrl { get; set; } // Nullable if optional
+
+        [Required]
+        [MaxLength(100)]
+        public required string Slug { get; set; } // SEO-friendly URL
+
+        public bool IsActive { get; set; } = true; // Default to true
+
+        public SEOMetadata? SEO { get; set; } // Nullable if optional
+
+        // Navigation property (if Brand has Products)
+        public ICollection<Product> Products { get; set; } = new List<Product>();
     }
 }

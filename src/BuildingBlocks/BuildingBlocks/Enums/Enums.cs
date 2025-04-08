@@ -32,4 +32,7 @@ namespace Common.Enums
         Professional,
         Enterprise
     }
+
+    public enum WeightUnit { Kg, Lb, Oz, G }
+    public enum DimensionUnit { Cm, In, M, Mm }
 }

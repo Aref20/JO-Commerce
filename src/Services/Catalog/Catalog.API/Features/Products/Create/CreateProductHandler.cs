@@ -1,6 +1,6 @@
 ﻿using BuildingBlocks.BaseEntity;
-using Catalog.API.Domian.DTOs;
-using Catalog.API.Domian.Entities.Products;
+using Catalog.API.Domian.DTOs.Product;
+using Catalog.API.Domian.Entities;
 using Mapster;
 using Marten;
 using MediatR;
@@ -8,10 +8,10 @@ using MediatR;
 namespace Catalog.API.Features.Products.CreateProduct
 {
     public class CreateProductHandler(IDocumentSession session) :
-           IRequestHandler<CreateProductCommand, Result<ProductDto>>
+           IRequestHandler<CreateProductCommand, ProductDto>
     {
 
-        public async Task<Result<ProductDto>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+        public async Task<ProductDto> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
             try
             {
@@ -21,11 +21,11 @@ namespace Catalog.API.Features.Products.CreateProduct
 
                 session.Store(product);
                 await session.SaveChangesAsync(cancellationToken);
-                return Result.Success(product.Adapt<ProductDto>());
+                return product.Adapt<ProductDto>();
             }
             catch (Exception ex)
             {
-                return Result.Failure<ProductDto>($"Failed to create product: {ex.Message}");
+                throw;
             }
         }
     }

@@ -1,5 +1,5 @@
 ﻿using BuildingBlocks.BaseEntity;
-using Catalog.API.Domian.DTOs;
+using Catalog.API.Domian.DTOs.Product;
 using Catalog.API.Features.Products.Commands;
 using Catalog.API.Features.Products.Update;
 using MediatR;

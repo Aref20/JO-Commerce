@@ -9,10 +9,11 @@ namespace BuildingBlocks.BaseEntity
     public abstract class BaseEntity
     {
         public Guid Id { get; set; } = Guid.NewGuid();
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime? UpdatedAt { get; set; }
-        public string CreatedBy { get; set; } = default!;
-        public string UpdatedBy { get; set; } = default!;
+        public Guid TenantId { get; set; } 
+        public required DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public required DateTime UpdatedAt { get; set; }
+        public required string CreatedBy { get; set; }
+        public required string? UpdatedBy { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

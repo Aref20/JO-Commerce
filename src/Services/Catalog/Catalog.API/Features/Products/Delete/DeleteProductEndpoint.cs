@@ -12,7 +12,7 @@ namespace Catalog.API.Features.Products.Delete
     public class DeleteProductEndpoint(IMediator mediator) : ControllerBase
     {
         [HttpDelete("{id:guid}")]
-        public async Task<Result> Delete(Guid id)
+        public async Task<Guid> Delete(Guid id)
         {
             var command = new DeleteProductCommand { Id = id };
             return await mediator.Send(command);
