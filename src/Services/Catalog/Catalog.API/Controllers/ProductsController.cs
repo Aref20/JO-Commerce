@@ -1,44 +1,45 @@
-﻿//using MediatR;
-//using Microsoft.AspNetCore.Mvc;
-//using BuildingBlocks.BaseEntity;
-//using Catalog.API.Features.Products.Commands;
-//using Catalog.API.Features.Products.Queries;
-//using Catalog.API.Features.Products.Create;
-//using Catalog.API.Features.Products.Update;
-//using Catalog.API.Domian.DTOs;
+﻿using Catalog.API.Core.Interfaces;
+using Catalog.API.Domain.DTOs.Product;
+using Common.Entities;
+using Microsoft.AspNetCore.Mvc;
 
-//namespace Catalog.API.Controllers
-//{
-//    [ApiController]
-//    [Route("api/[controller]")]
-//    public class ProductsController(IMediator _mediator) : ControllerBase
-//    {
+namespace Catalog.API.Controllers
+{
+    public class ProductsController(IProductService productService) : BaseController
+    {
 
+        [HttpPost]
+        public async Task<ActionResult<ProductDto>> Create([FromBody] CreateProductDto productDto)
+        {
+            var result = await productService.CreateProductAsync(productDto);
+            return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
+        }
 
+        [HttpGet("{id:guid}")]
+        public async Task<ActionResult<ProductDto>> GetById(Guid id)
+        {
+            var result = await productService.GetProductByIdAsync(id);
+            return Ok(result);
+        }
 
+        [HttpGet]
+        public async Task<ActionResult<List<ProductDto>>> GetAll()
+        {
+            return Ok(await productService.GetAllProductsAsync());
+        }
 
+        [HttpPut("{id:guid}")]
+        public async Task<ActionResult<ProductDto>> Update(Guid id, [FromBody] UpdateProductDto productDto)
+        {
+            var result = await productService.UpdateProductAsync(id, productDto);
+            return Ok(result);
+        }
 
-
-//        #region Helper Methods
-
-//        private Guid GetTenantId()
-//        {
-//            // In a real application, you would extract the tenant ID from:
-//            // 1. A claim in the user's JWT token
-//            // 2. A custom header
-//            // 3. Subdomain parsing
-//            // 4. A query parameter
-
-//            // For this example, we'll assume it comes from a header
-//            if (Request.Headers.TryGetValue("X-TenantId", out var tenantIdValue) &&
-//                Guid.TryParse(tenantIdValue, out var tenantId))
-//            {
-//                return tenantId;
-//            }
-
-//            return Guid.Empty;
-//        }
-
-//        #endregion
-//    }
-//}
+        [HttpDelete("{id:guid}")]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+            var result = await productService.DeleteProductAsync(id);
+            return NoContent();
+        }
+    }
+}

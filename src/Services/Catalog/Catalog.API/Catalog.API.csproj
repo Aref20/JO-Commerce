@@ -11,13 +11,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Remove="Domian\Events\**" />
+      <Compile Remove="Domain\Events\**" />
       <Compile Remove="Features\Products\EventHandlers\**" />
-      <Content Remove="Domian\Events\**" />
+      <Content Remove="Domain\Events\**" />
       <Content Remove="Features\Products\EventHandlers\**" />
-      <EmbeddedResource Remove="Domian\Events\**" />
+      <EmbeddedResource Remove="Domain\Events\**" />
       <EmbeddedResource Remove="Features\Products\EventHandlers\**" />
-      <None Remove="Domian\Events\**" />
+      <None Remove="Domain\Events\**" />
       <None Remove="Features\Products\EventHandlers\**" />
     </ItemGroup>
 
@@ -27,7 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks\Common.csproj" />
+      <ProjectReference Include="..\..\..\Common\Common\Common.csproj" />
     </ItemGroup>
 
 </Project>
