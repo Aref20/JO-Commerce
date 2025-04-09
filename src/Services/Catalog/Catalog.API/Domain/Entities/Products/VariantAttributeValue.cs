@@ -1,7 +1,7 @@
 ﻿using BuildingBlocks.BaseEntity;
 
 
-namespace Catalog.API.Domain.Entities
+namespace Catalog.API.Domain.Entities.Products
 {
     public class VariantAttributeValue : BaseEntity
     {

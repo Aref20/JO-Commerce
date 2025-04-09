@@ -1,7 +1,7 @@
 ﻿using BuildingBlocks.BaseEntity;
 using Common.Enums;
 
-namespace Catalog.API.Domain.Entities;
+namespace Catalog.API.Domain.Entities.Relationships;
 public class RelatedProduct : BaseEntity
 {
     public Guid ProductId { get; set; }

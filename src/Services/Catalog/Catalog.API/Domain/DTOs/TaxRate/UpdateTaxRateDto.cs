@@ -1,11 +1,9 @@
-﻿using BuildingBlocks.BaseEntity;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Catalog.API.Domain.Entities
+namespace Catalog.API.Domain.DTOs.TaxRate
 {
-    public class TaxRate : BaseEntity
+    public class UpdateTaxRateDto
     {
-
         public required string CountryCode { get; set; }
 
         public string? StateCode { get; set; }
@@ -16,7 +14,7 @@ namespace Catalog.API.Domain.Entities
 
         public bool IsDefault { get; set; }
 
+        [Required]
         public Guid TaxClassId { get; set; }
-        public TaxClass TaxClass { get; set; } = default!;
     }
 }

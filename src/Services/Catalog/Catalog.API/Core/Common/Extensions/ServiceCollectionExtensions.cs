@@ -1,5 +1,11 @@
 ﻿using Catalog.API.Core.Interfaces;
+using Catalog.API.Features.Attributes;
+using Catalog.API.Features.Brands;
+using Catalog.API.Features.Categories;
 using Catalog.API.Features.Products;
+using Catalog.API.Features.Tags;
+using Catalog.API.Features.TaxClasses;
+using Catalog.API.Features.TaxRates;
 using FluentValidation;
 using Mapster;
 using Marten;
@@ -14,6 +20,12 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
         services.AddScoped<IProductService, ProductService>();
+        services.AddScoped<IBrandService, BrandService>();
+        services.AddScoped<ICategoryService, CategoryService>();
+        services.AddScoped<ITagService, TagService>();
+        services.AddScoped<ITaxClassService, TaxClassService>();
+        services.AddScoped<ITaxRateService, TaxRateService>();
+        services.AddScoped<IAttributeService, AttributeService>();
         return services;
     }
 

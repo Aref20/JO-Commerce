@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using BuildingBlocks.BaseEntity;
-using Catalog.API.Domain.Entities;
+using Catalog.API.Domain.Entities.Relationships;
 
 
 

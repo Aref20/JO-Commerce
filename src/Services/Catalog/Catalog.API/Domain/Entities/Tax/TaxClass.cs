@@ -5,11 +5,9 @@ namespace Catalog.API.Domain.Entities
 {
     public class TaxClass : BaseEntity
     {
-        [Required]
-        [MaxLength(100)]
+
         public required string Name { get; set; }
 
-        [MaxLength(500)]
         public string? Description { get; set; }
 
         public ICollection<TaxRate> TaxRates { get; set; } = new List<TaxRate>();

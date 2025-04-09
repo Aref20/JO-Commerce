@@ -1,4 +1,5 @@
 ﻿using BuildingBlocks.BaseEntity;
+using Catalog.API.Domain.Entities.Products;
 
 namespace Catalog.API.Domain.Entities
 {

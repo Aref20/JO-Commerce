@@ -1,5 +1,5 @@
 ﻿using BuildingBlocks.BaseEntity;
-using Catalog.API.Domain.Entities;
+using Catalog.API.Domain.Entities.Relationships;
 using Common.Enums;
 using System.ComponentModel.DataAnnotations;
 
@@ -8,30 +8,21 @@ namespace Catalog.API.Domain.Entities
 {
     public class Product : BaseEntity
     {
-        [MaxLength(250)]
+   
         public required string Name { get; set; }
-
-        [MaxLength(500)]
         public string ShortDescription { get; set; } = string.Empty;
 
         public string FullDescription { get; set; } = string.Empty;
 
-        [MaxLength(100)]
         public string Sku { get; set; } = string.Empty;
-
-        [MaxLength(50)]
         public string? Gtin { get; set; }
 
-        [MaxLength(50)]
         public string? Mpn { get; set; }
 
-        [Range(0, double.MaxValue)]
         public decimal Price { get; set; }
 
-        [Range(0, double.MaxValue)]
         public decimal? CompareAtPrice { get; set; }
 
-        [Range(0, double.MaxValue)]
         public decimal? Cost { get; set; }
 
         public required int StockQuantity { get; set; }
@@ -39,16 +30,12 @@ namespace Catalog.API.Domain.Entities
         public bool AllowBackorder { get; set; }
         public int LowStockThreshold { get; set; }
 
-        [Range(0, double.MaxValue)]
         public decimal? Weight { get; set; }
 
-        [Range(0, double.MaxValue)]
         public decimal? Length { get; set; }
 
-        [Range(0, double.MaxValue)]
         public decimal? Width { get; set; }
 
-        [Range(0, double.MaxValue)]
         public decimal? Height { get; set; }
 
         public WeightUnit? WeightUnit { get; set; }
@@ -56,7 +43,6 @@ namespace Catalog.API.Domain.Entities
         public bool HasVariants { get; set; }
         public ProductType ProductType { get; set; }
 
-        [MaxLength(300)]
         public string Slug { get; set; } = string.Empty;
 
         public bool IsActive { get; set; }

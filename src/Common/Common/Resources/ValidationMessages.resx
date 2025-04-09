@@ -138,4 +138,109 @@
   <data name="StockCannotBeNegative" xml:space="preserve">
     <value>Stock quantity cannot be negative.</value>
   </data>
+     <data name="TagNameRequired" xml:space="preserve">
+      <value>Tag name is required</value>
+    </data>
+    <data name="TagNameTooLong" xml:space="preserve">
+      <value>Tag name cannot exceed 100 characters</value>
+    </data>
+    <data name="SlugRequired" xml:space="preserve">
+      <value>Slug is required</value>
+    </data>
+    <data name="SlugTooLong" xml:space="preserve">
+      <value>Slug cannot exceed 100 characters</value>
+    </data>
+    <data name="SlugInvalidFormat" xml:space="preserve">
+      <value>Slug can only contain lowercase letters, numbers, and hyphens</value>
+    </data>
+      <data name="TagNameRequired" xml:space="preserve">
+    <value>Tag name is required</value>
+  </data>
+  <data name="TagNameTooLong" xml:space="preserve">
+    <value>Tag name cannot exceed 100 characters</value>
+  </data>
+  <data name="SlugRequired" xml:space="preserve">
+    <value>Slug is required</value>
+  </data>
+  <data name="SlugTooLong" xml:space="preserve">
+    <value>Slug cannot exceed 100 characters</value>
+  </data>
+  <data name="SlugInvalidFormat" xml:space="preserve">
+    <value>Slug can only contain lowercase letters, numbers, and hyphens</value>
+  </data>
+      <data name="TagNameRequired" xml:space="preserve">
+    <value>Tag name is required</value>
+  </data>
+  <data name="TagNameTooLong" xml:space="preserve">
+    <value>Tag name cannot exceed 100 characters</value>
+  </data>
+  <data name="SlugRequired" xml:space="preserve">
+    <value>Slug is required</value>
+  </data>
+  <data name="SlugTooLong" xml:space="preserve">
+    <value>Slug cannot exceed 100 characters</value>
+  </data>
+  <data name="SlugInvalidFormat" xml:space="preserve">
+    <value>Slug can only contain lowercase letters, numbers, and hyphens</value>
+  </data>
+      <data name="TaxClassNameRequired" xml:space="preserve">
+    <value>Tax class name is required</value>
+  </data>
+  <data name="TaxClassNameTooLong" xml:space="preserve">
+    <value>Tax class name cannot exceed 100 characters</value>
+  </data>
+  <data name="TaxClassDescriptionTooLong" xml:space="preserve">
+    <value>Tax class description cannot exceed 500 characters</value>
+  </data>
+      <data name="TaxClassNameRequired" xml:space="preserve">
+    <value>Tax class name is required</value>
+  </data>
+  <data name="TaxClassNameTooLong" xml:space="preserve">
+    <value>Tax class name cannot exceed 100 characters</value>
+  </data>
+  <data name="TaxClassDescriptionTooLong" xml:space="preserve">
+    <value>Tax class description cannot exceed 500 characters</value>
+  </data>
+      <data name="CountryCodeRequired" xml:space="preserve">
+    <value>Country code is required</value>
+  </data>
+  <data name="CountryCodeLength" xml:space="preserve">
+    <value>Country code must be 2 characters</value>
+  </data>
+  <data name="StateCodeTooLong" xml:space="preserve">
+    <value>State code cannot exceed 2 characters</value>
+  </data>
+  <data name="PostalCodeTooLong" xml:space="preserve">
+    <value>Postal code cannot exceed 10 characters</value>
+  </data>
+  <data name="RateNegative" xml:space="preserve">
+    <value>Tax rate cannot be negative</value>
+  </data>
+  <data name="RateTooHigh" xml:space="preserve">
+    <value>Tax rate cannot exceed 100</value>
+  </data>
+  <data name="TaxClassRequired" xml:space="preserve">
+    <value>Tax class is required</value>
+  </data>
+      <data name="CountryCodeRequired" xml:space="preserve">
+    <value>Country code is required</value>
+  </data>
+  <data name="CountryCodeLength" xml:space="preserve">
+    <value>Country code must be 2 characters</value>
+  </data>
+  <data name="StateCodeTooLong" xml:space="preserve">
+    <value>State code cannot exceed 2 characters</value>
+  </data>
+  <data name="PostalCodeTooLong" xml:space="preserve">
+    <value>Postal code cannot exceed 10 characters</value>
+  </data>
+  <data name="RateNegative" xml:space="preserve">
+    <value>Tax rate cannot be negative</value>
+  </data>
+  <data name="RateTooHigh" xml:space="preserve">
+    <value>Tax rate cannot exceed 100</value>
+  </data>
+  <data name="TaxClassRequired" xml:space="preserve">
+    <value>Tax class is required</value>
+  </data>
 </root>

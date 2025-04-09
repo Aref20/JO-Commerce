@@ -1,7 +1,6 @@
 ﻿using BuildingBlocks.BaseEntity;
-using Catalog.API.Domain.Entities;
 
-namespace Catalog.API.Domain.Entities
+namespace Catalog.API.Domain.Entities.Relationships
 {
     public class ProductCategory : BaseEntity
     {

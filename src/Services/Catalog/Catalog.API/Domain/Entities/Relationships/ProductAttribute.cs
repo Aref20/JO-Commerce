@@ -1,6 +1,6 @@
 ﻿using BuildingBlocks.BaseEntity;
 
-namespace Catalog.API.Domain.Entities
+namespace Catalog.API.Domain.Entities.Relationships
 {
     public class ProductAttribute : BaseEntity
     {

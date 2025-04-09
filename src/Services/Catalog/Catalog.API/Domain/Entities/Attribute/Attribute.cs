@@ -1,4 +1,5 @@
 ﻿using BuildingBlocks.BaseEntity;
+using Catalog.API.Domain.Entities.Relationships;
 using Common.Enums;
 
 namespace Catalog.API.Domain.Entities
